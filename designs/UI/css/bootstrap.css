@@ -105,9 +105,14 @@ body {
 .whitebg{
   background-color: #ffffff;
   padding: 0 10px 10px 10px;
-  margin:4px 0 0 0;
+  margin:4px 0 0 250px;
 }
+.whitefooter{
+  background-color: #ffffff;
+  padding: 0 10px 10px 10px;
+  margin:4px 0 0 0; 
 
+}
 .recipes{
   margin:4px 0 0 0;
   background-color: #ffffff;

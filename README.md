@@ -1,4 +1,6 @@
 # Yummy_recipes
+[![Build Status](https://travis-ci.org/lennykioko/Yummy_recipes.svg?branch=develop)](https://travis-ci.org/lennykioko/Yummy_recipes)
+
 Yummy recipes provides a platform for users to keep track of their awesome recipes and share with others if they so wish.
 
 ## Features:

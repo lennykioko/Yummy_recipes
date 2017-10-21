@@ -102,7 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+venv/
 
-project/
 
 # End of https://www.gitignore.io/api/python

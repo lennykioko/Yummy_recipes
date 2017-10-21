@@ -1,0 +1,7 @@
+app
+designs
+.gitignore
+.travis.yml
+config.py
+README.md
+requirements.txt

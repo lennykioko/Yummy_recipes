@@ -1,0 +1,31 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type ="text/css" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+    <title> {% block title %} {% endblock %}</title>
+  </head>
+
+   <body>   
+      
+            <div class ="container-fluid">
+              <div class ="row">   
+                  <nav class="navbar navbar-light col-lg-12" >                           
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
+                        <a class="navbar-brand" href="#">
+                        	<img src="{{url_for('static', filename='img/logo.jpg')}}" width="160" height="108" alt="logo">
+                        </a>                        
+                      </div>
+
+  {% block body %}
+  {% endblock %}
+  </body>
+  <footer class="whitefooter">
+    My Recipes. © 2017 Lenny kioko
+  </footer>
+</html>

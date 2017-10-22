@@ -16,30 +16,93 @@ class  UserTest(unittest.TestCase):
     def test_user_registration(self):
 
         """ This tests for complete fields """
-
-        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret")
-        self.assertEqual(1, result, "User registration successful")
+        self.user.users = {}
+        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        self.assertEqual("Account created successfully", result, "User registration successful")
 
     def test_empty_username_field(self):
 
         """ Test for  empty  username field """
 
-        result = self.user.user_registration("", "lennykmutua@gmail.com", "secret")
-        self.assertEqual(2, result, "Please fill in the username field")
+        result = self.user.user_registration("", "lennykmutua@gmail.com", "secret", "secret")
+        self.assertEqual("Please fill in all fields correctly", result,
+                         "Please fill in the username field")
 
     def test_empty_email_field(self):
 
         """ Test for empty email  field """
 
-        result = self.user.user_registration("Lenny", "", "secret")
-        self.assertEqual(2, result, "Please fill in the email field")
+        result = self.user.user_registration("Lenny", "", "secret", "secret")
+        self.assertEqual("Please fill in all fields correctly", result,
+                         "Please fill in the email field")
 
     def test_empty_password_field(self):
 
         """Test for empty password  field """
 
-        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "")
-        self.assertEqual(2, result, "Please fill in the password field")
+        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "", "secret")
+        self.assertEqual("Please fill in all fields correctly", result,
+                         "Please fill in the password field")
+
+    def test_empty_cpassword_field(self):
+
+        """Test for empty confirm password  field """
+
+        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "")
+        self.assertEqual("Please fill in all fields correctly", result,
+                         "Please fill in the password field")
+
+    def test_successful_login(self):
+
+        """ Test the required inputs for a successful login"""
+
+        self.user.users = {}
+        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        valid_login = self.user.user_login("lennykmutua@gmail.com", "secret")
+        self.assertEqual("Successful log in", valid_login, "Log in successful.")
+
+
+    def test_login_emptypassword(self):
+
+        """ Test login when password field is empty"""
+
+        emptypassword = self.user.user_login("lennykmutua@gmail.com", "")
+        self.assertEqual("Kindly fill in both field correctly", emptypassword,
+                         "Kindly fill in password field.")
+
+
+
+    def test_login_emptyemail(self):
+
+        """ Test login when  email field is empty"""
+
+        emptyemail = self.user.user_login("", "secret")
+        self.assertEqual("Kindly fill in both field correctly", emptyemail,
+                         "Kindly fill in email field.")
+
+    def test_login_match_password(self):
+
+        """ Test login when the password differs with the one in the dictionary."""
+
+        self.user.users = {}
+
+        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        wrongpassword = self.user.user_login("lennykmutua@gmail.com", "public")
+        self.assertEqual("Kindly fill in both fields correctly", wrongpassword,
+                         "Incorrect password given.")
+
+
+
+    def test_login_match_email(self):
+
+        """ Test login when the email differs with the one in the dictionary."""
+
+        self.user.users = {}
+        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        wrongemail = self.user.user_login("lenny@gmail.com", "secret")
+        self.assertEqual("Kindly fill in both fields correctly", wrongemail,
+                         "Incorrect email given.")
 
 
 if __name__ == '__main__':

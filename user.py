@@ -1,30 +1,40 @@
 """ user.py """
 
+users = {}  # initialised an empty  dictionary named users
+
 
 class User(object):
 
 
     """ User class to handle  user functions like login and sign up """
 
-    users = {}  # initialised an empty  dictionary named users
-
-    def __init__(self, username=None, email=None, password=None):
+    def __init__(self, username=None, email=None, password=None, cpassword=None):
 
         """ Initializing  class instance variables """
 
         self.username = username
         self.email = email
         self.password = password
+        self.cpassword = cpassword
 
-    def user_registration(self, username, email, password):
+    def user_registration(self, username, email, password, cpassword):
 
         """ Method to register new users """
 
-        if username != '' and email != '' and password != '':
+        password = password.strip()
+        cpassword = cpassword.strip()
 
-            return 1
+        if username != '' and email != '' and password != '' and password == cpassword:
 
-            users = {'username': username, 'email': email, 'password' : password}
+            if email not in users.keys():
+
+                return "Account created successfully"
+
+                users[email] = {'username': username, 'email': email, 'password' : password}
+
+            return "Please fill in all fields correctly"
+                
+
 
 
     def user_login(self, email, password):
@@ -33,14 +43,16 @@ class User(object):
 
         if email != '' and password != '':
 
-            if email in users.values() and password in users.values():
+            if email in users.keys():
 
-                eml = users['email']
-                passwd = users['password']
+                result = users[email]
+                passwd = result['password']
 
-                if eml == email and passwd == password:
+                if passwd == password:
 
-                    return 1
-            return 2
-        return 3
-        
+                    return "Successful log in"
+
+                return "Invalid email" 
+
+            return "Kindly fill in both fields correctly"
+            

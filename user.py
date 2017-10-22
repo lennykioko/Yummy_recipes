@@ -31,7 +31,8 @@ class User(object):
                 return "Account created successfully"
 
                 users[email] = {'username': username, 'email': email, 'password' : password}
-
+                
+        else:
             return "Please fill in all fields correctly"
                 
 
@@ -52,7 +53,19 @@ class User(object):
 
                     return "Successful log in"
 
-                return "Invalid email" 
-
+            else:
+                return "Invalid credentials" 
+        else:
             return "Kindly fill in both fields correctly"
             
+            
+    def get_username(self, email):
+
+        """ Get username from the dictionary"""
+
+        if email in users.keys():
+
+            user_username = users[email]
+            return user_username['username']
+
+        return False

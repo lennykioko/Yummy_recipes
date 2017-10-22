@@ -68,7 +68,7 @@ class  UserTest(unittest.TestCase):
         """ Test login when password field is empty"""
 
         emptypassword = self.user.user_login("lennykmutua@gmail.com", "")
-        self.assertEqual("Kindly fill in both field correctly", emptypassword,
+        self.assertEqual("Kindly fill in both fields correctly", emptypassword,
                          "Kindly fill in password field.")
 
 
@@ -78,7 +78,7 @@ class  UserTest(unittest.TestCase):
         """ Test login when  email field is empty"""
 
         emptyemail = self.user.user_login("", "secret")
-        self.assertEqual("Kindly fill in both field correctly", emptyemail,
+        self.assertEqual("Kindly fill in both fields correctly", emptyemail,
                          "Kindly fill in email field.")
 
     def test_login_match_password(self):
@@ -89,8 +89,7 @@ class  UserTest(unittest.TestCase):
 
         self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
         wrongpassword = self.user.user_login("lennykmutua@gmail.com", "public")
-        self.assertEqual("Kindly fill in both fields correctly", wrongpassword,
-                         "Incorrect password given.")
+        self.assertEqual("Invalid credentials", wrongpassword, "Incorrect password given.")
 
 
 
@@ -100,9 +99,8 @@ class  UserTest(unittest.TestCase):
 
         self.user.users = {}
         self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
-        wrongemail = self.user.user_login("lenny@gmail.com", "secret")
-        self.assertEqual("Kindly fill in both fields correctly", wrongemail,
-                         "Incorrect email given.")
+        wrongemail = self.user.user_login("okiokii@gmail.com", "secret")
+        self.assertEqual("Invalid credentials", wrongemail, "Incorrect email given.")
 
 
 if __name__ == '__main__':

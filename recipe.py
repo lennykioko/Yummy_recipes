@@ -28,3 +28,5 @@ class Recipe(object):
             recipes[recipe_title] = {'category': recipe_category,
                                      'title': recipe_title,
                                      'description' : recipe_description}
+        else:
+            return "Kindly fill in all fields correctly"

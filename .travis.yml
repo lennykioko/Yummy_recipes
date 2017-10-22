@@ -1,9 +1,12 @@
 language: python
 python:
-  - "3.6"
+  - "3.6.2"
+  
 # command to install dependencies
 install:
   - pip install -r requirements.txt
 script:
-  - python test_user.py 
-  - python test_recipe.py
+  - pytest test_user
+  - pytest test_recipe.py
+
+after_success: coveralls

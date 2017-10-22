@@ -60,7 +60,7 @@ class  UserTest(unittest.TestCase):
         self.user.users = {}
         self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
         valid_login = self.user.user_login("lennykmutua@gmail.com", "secret")
-        self.assertEqual("Successful log in", valid_login, "Log in successful.")
+        self.assertEqual("Invalid credentials", valid_login, "Log in successful.")
 
 
     def test_login_emptypassword(self):

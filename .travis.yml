@@ -6,9 +6,6 @@ python:
 install:
   - "pip install -r requirements.txt"
 script:
-  - "pytest test_user.py"
-  - "pytest test_recipe.py"
-  - "coverage run test_user.py"
-  - "coverage run test_recipe.py"
+  - "pytest"
 
-after_success: coveralls
+  

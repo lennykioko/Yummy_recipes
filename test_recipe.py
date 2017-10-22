@@ -19,8 +19,8 @@ class  RecipeTest(unittest.TestCase):
         """ This tests for complete fields """
 
         result = self.recipe.create_recipe("Lunch", "Soft Chapati", "Prepare dough. Fry in hot pan")
-
-        self.assertEqual(1, result, "New recipe created successfully ")
+        self.assertEqual("Recipe added successfully", result,
+                         "New recipe created successfully ")
 
 
 
@@ -29,8 +29,8 @@ class  RecipeTest(unittest.TestCase):
         """ Test for  empty  recipe category field """
 
         result = self.recipe.create_recipe("", "Soft Chapati", "Prepare dough. Fry in hot pan")
-
-        self.assertEqual(1, result, "Please fill in the recipe category field")
+        self.assertEqual("Recipe added successfully", result,
+                         "Please fill in the recipe category field")
 
 
 
@@ -39,8 +39,8 @@ class  RecipeTest(unittest.TestCase):
         """ Test for empty recipe title  field """
 
         result = self.recipe.create_recipe("Lunch", "", "Prepare dough. Fry in hot pan")
-
-        self.assertEqual(1, result, "Please fill in the recipe title field")
+        self.assertEqual("Recipe added successfully", result,
+                         "Please fill in the recipe title field")
 
 
 
@@ -49,8 +49,8 @@ class  RecipeTest(unittest.TestCase):
         """ Test for empty recipe description field """
 
         result = self.recipe.create_recipe("Lunch", "Soft Chapati", "")
-
-        self.assertEqual(1, result, "Please fill in the recipe description field")
+        self.assertEqual("Recipe added successfully", result,
+                         "Please fill in the recipe description field")
 
 
 if __name__ == '__main__':

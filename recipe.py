@@ -23,8 +23,8 @@ class Recipe(object):
 
         if recipe_category != '' and recipe_title != '' and recipe_description != '':
 
-            return 1
+            return "Recipe added successfully"
 
-            recipes = {'category': recipe_category,
-                       'title': recipe_title,
-                       'description' : recipe_description}
+            recipes[recipe_title] = {'category': recipe_category,
+                                     'title': recipe_title,
+                                     'description' : recipe_description}

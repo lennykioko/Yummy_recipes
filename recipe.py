@@ -9,7 +9,7 @@ class Recipe(object):
 
     recipes = {}   # initialised an empty dictionary names recipes
 
-    def __init__(self, recipe_category=None, recipe_title=None, recipe_description=None):
+    def __init__(self, recipe_category=0, recipe_title=0, recipe_description=0):
 
         """ Initializing  class instance variables """
 
@@ -21,7 +21,7 @@ class Recipe(object):
 
         """ Method to create a new recipe """
 
-        if recipe_category != '' and recipe_title != '' and recipe_description != '':
+        if len(recipe_category) > 1 and len(recipe_title) > 1 and len(recipe_description) > 1:
 
             return "Recipe added successfully"
 

@@ -33,7 +33,7 @@ Install all app requirements
 * Users can create, view, update or delete recipes in existing categories.
 
 ## Description
-Yummy_recipies has two pages:
+Yummy_recipies includes:
 * Home Page which will allow users to log in and also create accounts if they haven't already.
   There is also a section to allow users see recipes from other users.
 * Dashboard page which allows users to add recipe categories, add recipes, edit recipes and delete recipes.
@@ -42,7 +42,10 @@ Yummy_recipies has two pages:
 * HTML5
 * CSS3
 * Bootstrap: http://getbootstrap.css
-* Python 3.6.2
+* Python 3.6.2 (PEP8)
+
+## Heroku link
+* https://yummy-recipes-1.herokuapp.com/
 
 ## Author:
 Lenny Kioko.

@@ -11,43 +11,43 @@ class  Testing_users(unittest.TestCase):
     """ setUp initialisation method """
 
     def setUp(self):
-        self.user = User()  
+        self.n_user = User()  
 
 
     def testing_registration(self):
 
         """ testing for complete fields """
 
-        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
-        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        self.n_user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        result = self.n_user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
         self.assertEqual("Account created successfully", result)
 
     def testing_empty_username(self):
 
         """ Testing for  empty  username """
 
-        result = self.user.user_registration("", "lennykmutua@gmail.com", "secret", "secret")
+        result = self.n_user.user_registration("", "lennykmutua@gmail.com", "secret", "secret")
         self.assertEqual("Please fill in all fields correctly", result)
 
     def testing_empty_email(self):
 
         """ Testing for empty email  field """
 
-        result = self.user.user_registration("Lenny", "", "secret", "secret")
+        result = self.n_user.user_registration("Lenny", "", "secret", "secret")
         self.assertEqual("Please fill in all fields correctly", result)
 
     def testing_empty_password(self):
 
         """Testing for empty password  field """
 
-        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "", "secret")
+        result = self.n_user.user_registration("Lenny", "lennykmutua@gmail.com", "", "secret")
         self.assertEqual("Please fill in all fields correctly", result)
 
     def testing_empty_cpassword(self):
 
         """Testing for empty confirm password  field """
 
-        result = self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "")
+        result = self.n_user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "")
         self.assertEqual("Please fill in all fields correctly", result)
 
 
@@ -55,8 +55,8 @@ class  Testing_users(unittest.TestCase):
 
         """ Testing  a successful login"""
 
-        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
-        valid_login = self.user.user_login("lennykmutua@gmail.com", "secret")
+        self.n_user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        valid_login = self.n_user.user_login("lennykmutua@gmail.com", "secret")
         self.assertEqual("Invalid credentials", valid_login)
 
 
@@ -64,7 +64,7 @@ class  Testing_users(unittest.TestCase):
 
         """ Testing login when password field is empty"""
 
-        no_password = self.user.user_login("lennykmutua@gmail.com", "")
+        no_password = self.n_user.user_login("lennykmutua@gmail.com", "")
         self.assertEqual("Kindly fill in both fields correctly", no_password)
 
 
@@ -73,15 +73,15 @@ class  Testing_users(unittest.TestCase):
 
         """ Testing login when  email field is empty"""
 
-        no_email = self.user.user_login("", "secret")
+        no_email = self.n_user.user_login("", "secret")
         self.assertEqual("Kindly fill in both fields correctly", no_email)
 
     def test_password_match(self):
 
         """ Test login with different password."""
 
-        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
-        wrong_password = self.user.user_login("lennykmutua@gmail.com", "public")
+        self.n_user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        wrong_password = self.n_user.user_login("lennykmutua@gmail.com", "public")
         self.assertEqual("Invalid credentials", wrong_password)
 
 
@@ -90,8 +90,8 @@ class  Testing_users(unittest.TestCase):
 
         """ Test login with different email."""
 
-        self.user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
-        wrong_email = self.user.user_login("okiokii@gmail.com", "secret")
+        self.n_user.user_registration("Lenny", "lennykmutua@gmail.com", "secret", "secret")
+        wrong_email = self.n_user.user_login("okiokii@gmail.com", "secret")
         self.assertEqual("Invalid credentials", wrong_email)
 
 

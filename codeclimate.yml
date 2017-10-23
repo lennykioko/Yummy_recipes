@@ -2,6 +2,6 @@ app
 designs
 .gitignore
 .travis.yml
-config.py
+config.yml
 README.md
 requirements.txt
